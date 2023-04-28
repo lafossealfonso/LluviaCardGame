@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d67334f80d4c6b4a9a8f277d5ae8357, type: 3}
-  m_Name: Sword
+  m_Name: SeaSerpentStrike
   m_EditorClassIdentifier: 
-  cardName: Sword
-  cardDescription: A Big Sword
+  cardName: Sea Serpent Strike
+  cardDescription: A water spirit manifests itself as a massive sea serpent, which
+    strikes out at opponents with powerful attacks.
   cardImage: {fileID: 0}
-  cardAtkValue: 2
-  cardDefValue: 1
+  cardAtkValue: 0
+  cardDefValue: 0
   excitementCostValue: 30

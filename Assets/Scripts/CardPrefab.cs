@@ -9,7 +9,7 @@ public class CardPrefab : MonoBehaviour
     public TextMeshProUGUI cardDescription;
     public TextMeshProUGUI cardATK;
     public TextMeshProUGUI cardDEF;
-    public AttackDeck attackDeck;
+    public DeckManager deckManager;
 
     public CardObject newAttackCard;
     public GameManager gameManager;
@@ -27,15 +27,15 @@ public class CardPrefab : MonoBehaviour
             return;
         }
 
-        attackDeck = FindObjectOfType<AttackDeck>();
-        if(attackDeck == null)
+        deckManager = FindObjectOfType<DeckManager>();
+        if(deckManager == null)
         {
             Debug.LogError("Attack Deck ERROR");
             return;
         }
 
         //grabs the first CardObject and changes the values
-        newAttackCard = attackDeck.GetNext();
+        newAttackCard = deckManager.GetNext();
 
         if(newAttackCard == null)
         {

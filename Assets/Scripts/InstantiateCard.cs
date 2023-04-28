@@ -8,7 +8,7 @@ public class InstantiateCard : MonoBehaviour
 {
     public GameObject cardPrefab;
     public Transform locationSlot;
-    public AttackDeck attackDeck;
+    public DeckManager deckManager;
 
     
 

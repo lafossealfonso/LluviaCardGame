@@ -2,19 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackDeck : MonoBehaviour
+public class DeckManager : MonoBehaviour
 {
     public List<CardObject> cards;
     private int currentIndex;
     public string nextCardName;
+    [SerializeField] int deckCount = 15;
+   
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        while(cards.Count < deckCount)
+        {
+            DuplicateRandomCard();
+        }
+
+
         Shuffle(cards);
         foreach (CardObject card in cards)
         {
             Debug.Log(card);
         }
+
+
     }
 
     // Update is called once per frame
@@ -32,7 +45,7 @@ public class AttackDeck : MonoBehaviour
         // Increment the current index so we get a different item next time
         currentIndex++;
 
-        if(currentIndex < 0)
+        if (currentIndex < 0)
         {
             return null;
         }
@@ -45,14 +58,14 @@ public class AttackDeck : MonoBehaviour
             return nextCard;
         }
 
-      
+
 
         // Return the next item
-        
-        
+
+
     }
 
-    
+
 
     public static void Shuffle(List<CardObject> list)
     {
@@ -72,5 +85,13 @@ public class AttackDeck : MonoBehaviour
         }
     }
 
-    
+    public void DuplicateRandomCard()
+    {
+        int randomIndex = Random.Range(0, cards.Count);
+
+        CardObject itemToDuplicate = cards[randomIndex];
+        cards.Insert(randomIndex, itemToDuplicate);
+    }
+
+
 }

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d67334f80d4c6b4a9a8f277d5ae8357, type: 3}
-  m_Name: Shield
+  m_Name: WaterMirage
   m_EditorClassIdentifier: 
-  cardName: Shield
-  cardDescription: A massive shield
+  cardName: Water Mirage
+  cardDescription: This attack creates a mirage of a water spirit, confusing opponents
+    and potentially causing them to waste their attacks.
   cardImage: {fileID: 0}
-  cardAtkValue: 1
-  cardDefValue: 3
-  excitementCostValue: 20
+  cardAtkValue: 0
+  cardDefValue: 0
+  excitementCostValue: 10

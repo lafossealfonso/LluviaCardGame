@@ -506,6 +506,7 @@ RectTransform:
   - {fileID: 1581990452}
   - {fileID: 1153288304}
   - {fileID: 441784413}
+  - {fileID: 1116361733}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -526,7 +527,6 @@ GameObject:
   - component: {fileID: 441784417}
   - component: {fileID: 441784416}
   - component: {fileID: 441784415}
-  - component: {fileID: 441784414}
   m_Layer: 5
   m_Name: DeckButton
   m_TagString: Untagged
@@ -555,21 +555,6 @@ RectTransform:
   m_AnchoredPosition: {x: -167.2, y: -57.7}
   m_SizeDelta: {x: 50.3125, y: 85.9255}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &441784414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441784412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f05535f0a0621647a6ee52e33386c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 2636986657769084933, guid: a701e9910d52b404597c591aa206b5b2, type: 3}
-  locationSlot: {fileID: 1581990452}
-  attackDeck: {fileID: 1115045047}
 --- !u!114 &441784415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,9 +599,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 441784414}
-        m_TargetAssemblyTypeName: InstantiateCard, Assembly-CSharp
-        m_MethodName: DrawCard
+      - m_Target: {fileID: 1116361734}
+        m_TargetAssemblyTypeName: DrawCard, Assembly-CSharp
+        m_MethodName: DrawCardToHand
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -941,7 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 2636986657769084933, guid: a701e9910d52b404597c591aa206b5b2, type: 3}
   locationSlot: {fileID: 1581990452}
-  attackDeck: {fileID: 0}
+  deckManager: {fileID: 0}
 --- !u!4 &972744329
 Transform:
   m_ObjectHideFlags: 0
@@ -966,7 +951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115045048}
-  - component: {fileID: 1115045047}
+  - component: {fileID: 1115045049}
   m_Layer: 0
   m_Name: AttackDeck
   m_TagString: Untagged
@@ -974,23 +959,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1115045047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115045046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fabd642e756260469056dad26a3647f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cards:
-  - {fileID: 11400000, guid: 6c78ca93f317c924b99d0580a35bb44c, type: 2}
-  - {fileID: 11400000, guid: 141b57cac2eca914a81ff4ca05f7eefd, type: 2}
-  - {fileID: 11400000, guid: 07e8a0aade0d648408fd4db6b1626713, type: 2}
-  nextCardName: 
 --- !u!4 &1115045048
 Transform:
   m_ObjectHideFlags: 0
@@ -1006,6 +974,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1115045049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115045046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5320a30448e7c0f459af6fcce429e1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards:
+  - {fileID: 11400000, guid: 6c78ca93f317c924b99d0580a35bb44c, type: 2}
+  - {fileID: 11400000, guid: 141b57cac2eca914a81ff4ca05f7eefd, type: 2}
+  - {fileID: 11400000, guid: 07e8a0aade0d648408fd4db6b1626713, type: 2}
+  - {fileID: 11400000, guid: c7cd298d063c90347963866c9c3cca54, type: 2}
+  - {fileID: 11400000, guid: 4ab7125dd5cf7484c9a036f4d6fa2b67, type: 2}
+  - {fileID: 11400000, guid: f3c77c4d1c4b1a8428875aaee2907c62, type: 2}
+  - {fileID: 11400000, guid: 8dc9c577a3cfd5d4fb769c337f7ff7a7, type: 2}
+  nextCardName: 
+  deckCount: 20
+--- !u!1 &1116361732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116361733}
+  - component: {fileID: 1116361734}
+  m_Layer: 5
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1116361733
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116361732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 405064542}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -32.1, y: -64.737}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1116361734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116361732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605de425598c8984997734426327e20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 2636986657769084933, guid: a701e9910d52b404597c591aa206b5b2, type: 3}
+  numCards: 4
+  cardSpacing: 40
+  tiltAngle: 2
 --- !u!1 &1153288303
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d67334f80d4c6b4a9a8f277d5ae8357, type: 3}
-  m_Name: Pig
+  m_Name: TidalSurge
   m_EditorClassIdentifier: 
-  cardName: Pig
-  cardDescription: a stinky pig
+  cardName: Tidal Surge
+  cardDescription: This attack calls upon a water spirit to summon a massive tidal
+    wave, which crashes down on opponents with tremendous force.
   cardImage: {fileID: 0}
-  cardAtkValue: 2
-  cardDefValue: 2
-  excitementCostValue: 10
+  cardAtkValue: 0
+  cardDefValue: 0
+  excitementCostValue: 25
