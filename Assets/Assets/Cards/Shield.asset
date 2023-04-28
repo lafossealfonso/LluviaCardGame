@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d67334f80d4c6b4a9a8f277d5ae8357, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  cardName: Shield
+  cardDescription: A massive shield
+  cardImage: {fileID: 0}
+  cardAtkValue: 1
+  cardDefValue: 3
+  excitementCostValue: 20
