@@ -65,6 +65,7 @@ public class DeckSlotManager : MonoBehaviour
         busyCardSlots.Add(currentFreeDeckSlot);
         //resets the bool KEEP HERE (i think)
         readyToReceiveCard = true;
+        drawCardScript.numCards = 0;
 
 
     }

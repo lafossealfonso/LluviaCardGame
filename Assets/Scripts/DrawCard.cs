@@ -11,51 +11,12 @@ public class DrawCard : MonoBehaviour
     public GameObject currentCard;
     public DeckSlotManager deckSlotManager;
 
-    private int cardsToDraw = 0;
-
     // Start is called before the first frame update
     void Start()
     {
-        int i = 0;
-        while (i < numCards)
-        {
-            if (deckSlotManager.readyToReceiveCard == true)
-            {
-                //instantiates card for every number in numCards.
-                GameObject card = Instantiate(cardPrefab, deckSlot);
-                currentCard = card;
-                deckSlotManager.SendCardToFreeSlot();
-                i++;
-            }
-            else if (i == 0)
-            {
-                numCards = 0;
-            }
-        }
+
     }
-
-        /*for (int i = 0; i < numCards; i++)
-        {
-            if (deckSlotManager.readyToReceiveCard == true)
-            {
-                //instantiates card for every number in numCards.
-                GameObject card = Instantiate(cardPrefab, deckSlot);
-                currentCard = card;
-                deckSlotManager.SendCardToFreeSlot();
-            }
-
-            else if(i == 0)
-            {
-                numCards = 0;
-            }
-
-        }
-        */
-
-
-
-    
-
+        
 
     // Update is called once per frame
     void FixedUpdate()
@@ -77,13 +38,8 @@ public class DrawCard : MonoBehaviour
                 deckSlotManager.SendCardToFreeSlot();
             }
 
-            else if (i == 0)
-            {
-                numCards = 0;
-            }
-
         }
 
-        numCards = 0;
+        
     }
 }
