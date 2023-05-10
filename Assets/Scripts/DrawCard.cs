@@ -5,29 +5,62 @@ using UnityEngine;
 public class DrawCard : MonoBehaviour
 {
     [SerializeField] private GameObject cardPrefab;
-    [SerializeField] private int numCards = 2;
-    [SerializeField] private float cardSpacing = 0.5f;
-    [SerializeField] private float tiltAngle = 10.0f;
-    
+    public int numCards = 2;
+
+    [SerializeField] private Transform deckSlot;
+    public GameObject currentCard;
+    public DeckSlotManager deckSlotManager;
+
+    private int cardsToDraw = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < numCards; i++)
+        int i = 0;
+        while (i < numCards)
         {
-            //instantiates card for every number in numCards.
-            GameObject card = Instantiate(cardPrefab, transform);
-            card.transform.localPosition = new Vector3(i * cardSpacing, 0, 0);
-
-            //tilt cards
-            float angle = (i - (numCards - 1) / 2.0f) * tiltAngle;
-            card.transform.Rotate(Vector3.back, angle);
+            if (deckSlotManager.readyToReceiveCard == true)
+            {
+                //instantiates card for every number in numCards.
+                GameObject card = Instantiate(cardPrefab, deckSlot);
+                currentCard = card;
+                deckSlotManager.SendCardToFreeSlot();
+                i++;
+            }
+            else if (i == 0)
+            {
+                numCards = 0;
+            }
         }
     }
+
+        /*for (int i = 0; i < numCards; i++)
+        {
+            if (deckSlotManager.readyToReceiveCard == true)
+            {
+                //instantiates card for every number in numCards.
+                GameObject card = Instantiate(cardPrefab, deckSlot);
+                currentCard = card;
+                deckSlotManager.SendCardToFreeSlot();
+            }
+
+            else if(i == 0)
+            {
+                numCards = 0;
+            }
+
+        }
+        */
+
+
+
+    
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
     }
 
     public void DrawCardToHand()
@@ -36,15 +69,21 @@ public class DrawCard : MonoBehaviour
 
         for (int i = 0; i < numCards; i++)
         {
-            //instantiates card for every number in numCards.
-            GameObject card = Instantiate(cardPrefab, transform);
-            card.transform.localPosition = new Vector3(i * cardSpacing, 0, 0);
+            if (deckSlotManager.readyToReceiveCard == true)
+            {
+                //instantiates card for every number in numCards.
+                GameObject card = Instantiate(cardPrefab, deckSlot);
+                currentCard = card;
+                deckSlotManager.SendCardToFreeSlot();
+            }
 
-            //tilt cards
-            float angle = (i - (numCards - 1) / 2.0f) * tiltAngle;
-            card.transform.Rotate(Vector3.back, angle);
+            else if (i == 0)
+            {
+                numCards = 0;
+            }
+
         }
 
-        
+        numCards = 0;
     }
 }
