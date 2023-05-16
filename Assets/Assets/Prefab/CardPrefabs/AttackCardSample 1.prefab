@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 2636986657769084952}
   - component: {fileID: 7761631359412770092}
   m_Layer: 5
-  m_Name: AttackCardSample
+  m_Name: AttackCardSample 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
